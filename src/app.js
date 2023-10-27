@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const hbs = require("hbs");
-const Handlebars = require("handlebars");
 require("./db/conn");
+require('dotenv').config();
 const User = require("./models/usersMessage");
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -67,6 +68,6 @@ app.get('/api/get-chat-history', (req, res) => {
   res.json(chatHistory);
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
