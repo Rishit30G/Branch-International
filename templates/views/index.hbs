@@ -20,14 +20,24 @@
                     <div class="card-body" id="chatArea" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px; overflow-y: auto;">
                         <!-- Messages will be appended here -->
                     </div>
-                    <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-                        <div class="input-group mb-0">
+                    <div class="card-footer text-muted p-3">
+                        <div class="row g-0">
+                            <div class="col-lg-1">
+                                <button class="btn btn-outline-primary rounded-5" type="button" id="helloButton">Done</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button class="btn btn-outline-primary rounded-5" type="button" id="sureButton">Sure</button>
+                            </div>
+                             <div class="col-lg-2">
+                                <button class="btn btn-outline-primary rounded-5" type="button" id="alrightButton">Alright, got it!</button>
+                            </div>
+                        </div>
+                        <div class="input-group mt-2">
                             <input type="text" class="form-control" id="messageInput" placeholder="Type message" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                            <button class="btn btn-success" type="button" id="sendButton" style="padding-top: .55rem;">
-                                Send
-                            </button>
+                            <button class="btn btn-success" type="button" id="sendButton">Send</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

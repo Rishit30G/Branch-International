@@ -47,14 +47,12 @@ app.get("/api", async (req, res) => {
 app.post('/api/save-message', async (req, res) => {
   const message = req.body;
   chatHistory.push(message);
-  //Send the even number objectes to the mongoDB database 
-  console.log(message);
 
   if((chatHistory.length % 2) != 0){
     try{
       const usersMessage = new User(message); 
       await usersMessage.save();
-      console.log("Message saved");
+      // console.log("Message saved");
     }
     catch(err){
       console.log(err);

@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const messageInput = document.getElementById('messageInput');
     const sendButton = document.getElementById('sendButton');
 
+    document.querySelectorAll('#helloButton, #sureButton, #alrightButton').forEach(button => {
+        button.addEventListener('click', function() {
+            document.getElementById('messageInput').value = this.textContent;
+        });
+    });
 
     sendButton.addEventListener('click', async () => {
         const message = messageInput.value.trim();
@@ -20,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const messageObject = {
                 agentID, // Include the agent ID in the object
                 messageBody: message,
-                timestamp: new Date().toISOString(), // Use ISO string for consistency
+                timestamp: new Date(),
                 sender: 'agent',
             };
             addMessageToChatArea(messageObject.messageBody, 'end', messageObject.timestamp);
@@ -73,7 +78,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 1000); // Simulate a delay of 1 second
     }
 
-    function addMessageToChatArea(message, position, timestamp = new Date().toLocaleString()) {
+
+
+    function addMessageToChatArea(message, position, timestamp = new Date()) {
         const messageContainer = document.createElement('div');
         messageContainer.classList.add('d-flex', 'flex-row', 'my-3', 'pt-1');
         messageContainer.classList.add(position === 'end' ? 'justify-content-end' : 'justify-content-start');
